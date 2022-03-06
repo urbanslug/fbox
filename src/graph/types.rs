@@ -57,7 +57,6 @@ impl Edges {
     }
 }
 
-
 type AdjacencyList = Vec<Edges>;
 
 // TODO: merge forward and reverse
@@ -65,11 +64,10 @@ type AdjacencyList = Vec<Edges>;
 /// reverse edges
 /// Genome graph as a list
 pub struct GraphList {
-	pub forward: AdjacencyList,
-	pub reverse: AdjacencyList,
-    pub furthest_node: usize
+    pub forward: AdjacencyList,
+    pub reverse: AdjacencyList,
+    pub furthest_node: usize,
 }
-
 
 // Makes no sense for undirected graph
 pub trait Graph {

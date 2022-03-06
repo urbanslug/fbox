@@ -2,8 +2,8 @@
 Perform DFS
  */
 
-use std::collections::HashSet;
 use crate::graph::types;
+use std::collections::HashSet;
 
 /// Explore every node in a graph
 pub fn dfs<G: types::Graph>(graph: &G) {
@@ -15,7 +15,6 @@ pub fn dfs<G: types::Graph>(graph: &G) {
     let mut postvisit = Vec::<u32>::new();
 
     for start_node in 0..size {
-
         if visited[start_node] {
             continue;
         }
@@ -39,22 +38,15 @@ pub fn dfs<G: types::Graph>(graph: &G) {
                     stack.push(*o);
                     break;
                 }
-
             }
 
             // outgoing are empty or are all visited
             if outgoing_nodes.is_empty() || outgoing_nodes.iter().all(|x| visited[*x as usize]) {
-                postvisit.push(current_node  as u32);
+                postvisit.push(current_node as u32);
             }
-
         }
-
     }
 }
-
-
-
-
 
 #[cfg(test)]
 mod tests {

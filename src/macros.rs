@@ -60,5 +60,4 @@ mod tests {
         let y = 23;
         assert_eq!(min![&x, &y], &23);
     }
-
 }

@@ -2,11 +2,10 @@
 Detect back edges in a graph
  */
 
-use std::collections::HashSet;
 use crate::graph::types;
+use std::collections::HashSet;
 
-
-pub fn find_back_edges<G: types::Graph>(graph: &G) -> Vec<types::Edge>  {
+pub fn find_back_edges<G: types::Graph>(graph: &G) -> Vec<types::Edge> {
     let size = graph.size() as usize;
     let mut visited: Vec<bool> = vec![false; size]; // boolean column matrix
     let mut in_stack: Vec<bool> = vec![false; size]; // boolean column matrix
@@ -26,8 +25,8 @@ pub fn find_back_edges<G: types::Graph>(graph: &G) -> Vec<types::Edge>  {
                 Some(n) => n,
                 _ => {
                     eprintln!("Done");
-                    break
-                },
+                    break;
+                }
             } as usize;
 
             in_stack[current_node] = false;

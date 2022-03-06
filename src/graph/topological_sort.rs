@@ -2,8 +2,8 @@
 Topological sort
  */
 
-use std::collections::HashSet;
 use crate::graph::types;
+use std::collections::HashSet;
 
 /// Performs DFS but collects post visits
 pub fn sort<G: types::Graph>(graph: &G) -> Vec<u32> {
@@ -14,7 +14,6 @@ pub fn sort<G: types::Graph>(graph: &G) -> Vec<u32> {
     let mut postvisit = Vec::<u32>::new();
 
     for start_node in 0..size {
-
         if visited[start_node] {
             continue;
         }
@@ -36,25 +35,18 @@ pub fn sort<G: types::Graph>(graph: &G) -> Vec<u32> {
                     stack.push(*o);
                     break;
                 }
-
             }
 
             // outgoing are empty or are all visited
             if outgoing_nodes.is_empty() || outgoing_nodes.iter().all(|x| visited[*x as usize]) {
-                postvisit.push(current_node  as u32);
+                postvisit.push(current_node as u32);
             }
-
         }
-
     }
 
     postvisit.reverse();
     postvisit
 }
-
-
-
-
 
 #[cfg(test)]
 mod tests {

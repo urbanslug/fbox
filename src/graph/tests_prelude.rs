@@ -2,25 +2,25 @@ use crate::graph::types;
 use std::collections::HashSet;
 
 pub struct UnGraph {
-    adj_list: Vec<Vec<u32>>
+    adj_list: Vec<Vec<u32>>,
 }
 
 pub fn make_ungraph() -> UnGraph {
     let g: UnGraph = UnGraph {
         adj_list: vec![
-            vec![1], // 0
+            vec![1],    // 0
             vec![2, 3], // 1
-            vec![4], // 2
-            vec![4], // 3
-            vec![5], // 4
-        ]
+            vec![4],    // 2
+            vec![4],    // 3
+            vec![5],    // 4
+        ],
     };
 
     g
 }
 
 pub struct DiGraph {
-    adj_list: Vec<types::Edges>
+    adj_list: Vec<types::Edges>,
 }
 
 impl types::Graph for DiGraph {

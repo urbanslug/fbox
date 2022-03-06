@@ -12,7 +12,6 @@
 ///  C       2         67
 ///  G       4         71
 
-
 fn complement(mut base: u8) -> u8 {
     match base {
         3 => base <<= 2,  // A -> T
@@ -20,7 +19,9 @@ fn complement(mut base: u8) -> u8 {
         2 => base <<= 1,  // C -> G
         4 => base >>= 1,  // G -> C
         0 => base = 0,    // TODO handle N
-        _ => { panic!("{}", base); }
+        _ => {
+            panic!("{}", base);
+        }
     };
     base
 }
@@ -50,13 +51,12 @@ fn from_ascii(base: u8) -> u8 {
 }
 
 fn complement_ascii(base: u8) -> u8 {
-  to_ascii(complement(from_ascii(base)))
+    to_ascii(complement(from_ascii(base)))
 }
 
 fn reverse_complement_dna(dna: &[u8]) -> Vec<u8> {
     dna.iter().rev().map(|b| complement_ascii(*b)).collect()
 }
-
 
 #[cfg(test)]
 mod tests {
