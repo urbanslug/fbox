@@ -18,7 +18,7 @@ fn complement(mut base: u8) -> u8 {
         12 => base >>= 2, // T -> A
         2 => base <<= 1,  // C -> G
         4 => base >>= 1,  // G -> C
-        0 => base = 0,    // TODO handle N
+        0 => base = 0,    // TODO: handle N
         _ => {
             panic!("{}", base);
         }
@@ -40,12 +40,12 @@ fn to_ascii(base: u8) -> u8 {
 
 fn from_ascii(base: u8) -> u8 {
     let mut lookup: [u8; 85] = [0; 85];
-    lookup[65] = 3; // A
-    lookup[67] = 2; // C
-    lookup[71] = 4; // G
+    lookup[65] = 3;  // A
+    lookup[67] = 2;  // C
+    lookup[71] = 4;  // G
     lookup[84] = 12; // T
 
-    lookup[78] = 0; // N
+    lookup[78] = 0;  // N
 
     lookup[base as usize]
 }
