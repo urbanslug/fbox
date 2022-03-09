@@ -3,6 +3,7 @@ use std::collections::HashSet;
 
 use crate::graph::types;
 
+// TODO: make this a reference
 /// Takes a GFA and decomposes it to an adjacency list of its nodes,
 /// identifying the nodes by node id.
 pub fn decompose_gfa<T>(gfa: gfa::gfa::GFA<usize, T>) -> types::GraphList

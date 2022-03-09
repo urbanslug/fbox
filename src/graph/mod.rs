@@ -1,7 +1,7 @@
 pub mod connected_components;
-mod cycles;
+pub mod cycles;
 pub mod dfs;
-mod genome_graph;
+pub mod genome_graph;
 mod tests_prelude;
 pub mod topological_sort;
-mod types;
+pub mod types;
