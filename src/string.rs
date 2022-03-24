@@ -13,9 +13,12 @@ pub fn random_string(n: usize) -> String {
 // The position of zero in the ASCII table
 const ASCII_ZERO: u8 = 48;
 
-/// Like https://doc.rust-lang.org/std/primitive.str.html#method.parse but for u8 slices
-/// TODO: is this over-engineering?
-/// Convert a Vec<u8> into a u32 assuming it was first read as a num literal.
+// TODO: is this over-engineering?
+/// Convert a `Vec<u8>` into a `u32` assuming it was first read as a num literal.
+///
+/// Like [std::parse](https://doc.rust-lang.org/std/primitive.str.html#method.parse)
+/// but for u8 slices
+///
 /// For example:
 /// "49" it was parsed into a vec![52, 57], we expect the u32 value of 49.
 /// we do this by adding 40 + 9 i.e ones tens hundreds etc
