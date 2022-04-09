@@ -1,5 +1,11 @@
-use rand::{thread_rng, Rng};
 use rand::distributions::Alphanumeric;
+use rand::{thread_rng, Rng};
+use std::iter;
+
+/// Generate a string from a char repeated count times
+pub fn repeat_char(c: char, count: usize) -> String {
+    iter::repeat(c).take(count).collect::<String>()
+}
 
 /// Generate a random string with a given length `n`
 pub fn random_string(n: usize) -> String {
@@ -22,8 +28,29 @@ const ASCII_ZERO: u8 = 48;
 /// For example:
 /// "49" it was parsed into a vec![52, 57], we expect the u32 value of 49.
 /// we do this by adding 40 + 9 i.e ones tens hundreds etc
-pub fn u8_slice_to_u32 (v: &[u8]) -> u32 {
+pub fn u8_slice_to_u32(v: &[u8]) -> u32 {
     v.iter().rev().enumerate().fold(0, |acc, (idx, v)| {
         acc + (*v - ASCII_ZERO) as u32 * 10_u32.pow(idx as u32)
     })
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_repeat_char() {
+        let count = 10;
+        let c = 'X';
+        let s = repeat_char(c, count);
+        assert_eq!(s.len(), count);
+        assert!(s.chars().all(|x| x == c));
+    }
+
+    #[test]
+    fn test_random_string() {
+        let count = 10;
+        let s = random_string(count);
+        assert_eq!(s.len(), count);
+    }
 }
